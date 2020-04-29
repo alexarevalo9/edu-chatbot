@@ -8,6 +8,11 @@ app = Flask(__name__)
 client = wolframalpha.Client(API_WOLFRAM_KEY)
 
 
+@app.route('/')
+def main():
+    return 'Hello from ChatBot'
+
+
 @app.route('/bot', methods=['POST'])
 def bot():
     incoming_msg = request.values.get('Body', '').lower()
